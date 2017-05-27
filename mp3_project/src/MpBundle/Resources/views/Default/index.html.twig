@@ -1,1 +1,15 @@
-Hello World!
+{% extends 'menu.html.twig' %}
+{% block body %}
+<div class="row">
+  <div class="col-lg-4 wellwell">
+    <h1>Hello World!</h1>
+  </div>
+  <div class="col-lg-4 well">
+    <p>Je suis un paragraphe</p>
+  </div>
+  <div class="col-lg-4 well">
+    <img src="{{ asset('apple-touch-icon.png') }}" alt="">
+  </div>
+
+
+{% endblock %}
