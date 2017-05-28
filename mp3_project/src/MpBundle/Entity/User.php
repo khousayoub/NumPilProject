@@ -20,6 +20,13 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $user_type;
+
+    /**
     * @ORM\ManyToOne(targetEntity="Vol", inversedBy="users")
     * @ORM\JoinColumn(name="vol_id", referencedColumnName="id")
      */
