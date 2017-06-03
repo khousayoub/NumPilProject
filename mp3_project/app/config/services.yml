@@ -4,6 +4,7 @@ parameters:
     #parameter_name: value
 
 services:
-    #service_name:
-    #    class: AppBundle\Directory\ClassName
-    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    mp.form.registration:
+        class: MpBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: mp_user_registration }

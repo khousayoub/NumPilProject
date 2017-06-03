@@ -197,4 +197,69 @@ class Vol
     {
         return $this->departure_hour;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \MpBundle\Entity\User $user
+     *
+     * @return Vol
+     */
+    public function addUser(\MpBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \MpBundle\Entity\User $user
+     */
+    public function removeUser(\MpBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set avion
+     *
+     * @param \MpBundle\Entity\Avion $avion
+     *
+     * @return Vol
+     */
+    public function setAvion(\MpBundle\Entity\Avion $avion = null)
+    {
+        $this->avion = $avion;
+
+        return $this;
+    }
+
+    /**
+     * Get avion
+     *
+     * @return \MpBundle\Entity\Avion
+     */
+    public function getAvion()
+    {
+        return $this->avion;
+    }
 }

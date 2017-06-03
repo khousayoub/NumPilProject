@@ -36,12 +36,10 @@ class Avion
     private $capacity;
 
     /**
-     * @var int
      *
-     * @ORM\OneToMany(targetEntity="User", mappedBy="avion")
-     * @ORM\JoinColumn(name="avion_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Vol", mappedBy="avion")
      */
-    private $users;
+    private $vols;
 
     /**
      * Get id

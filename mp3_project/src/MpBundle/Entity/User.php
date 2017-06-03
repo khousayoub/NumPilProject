@@ -61,4 +61,52 @@ class User extends BaseUser
     {
         return $this->avion;
     }
+
+    /**
+     * Set userType
+     *
+     * @param string $userType
+     *
+     * @return User
+     */
+    public function setUserType($userType)
+    {
+        $this->user_type = $userType;
+
+        return $this;
+    }
+
+    /**
+     * Get userType
+     *
+     * @return string
+     */
+    public function getUserType()
+    {
+        return $this->user_type;
+    }
+
+    /**
+     * Set vol
+     *
+     * @param \MpBundle\Entity\Vol $vol
+     *
+     * @return User
+     */
+    public function setVol(\MpBundle\Entity\Vol $vol = null)
+    {
+        $this->vol = $vol;
+
+        return $this;
+    }
+
+    /**
+     * Get vol
+     *
+     * @return \MpBundle\Entity\Vol
+     */
+    public function getVol()
+    {
+        return $this->vol;
+    }
 }

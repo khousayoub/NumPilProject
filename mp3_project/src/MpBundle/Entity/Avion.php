@@ -163,4 +163,38 @@ class Avion
     {
         return $this->category;
     }
+
+    /**
+     * Add vol
+     *
+     * @param \MpBundle\Entity\Vol $vol
+     *
+     * @return Avion
+     */
+    public function addVol(\MpBundle\Entity\Vol $vol)
+    {
+        $this->vols[] = $vol;
+
+        return $this;
+    }
+
+    /**
+     * Remove vol
+     *
+     * @param \MpBundle\Entity\Vol $vol
+     */
+    public function removeVol(\MpBundle\Entity\Vol $vol)
+    {
+        $this->vols->removeElement($vol);
+    }
+
+    /**
+     * Get vols
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVols()
+    {
+        return $this->vols;
+    }
 }

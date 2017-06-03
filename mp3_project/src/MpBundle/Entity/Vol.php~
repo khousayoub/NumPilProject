@@ -56,6 +56,17 @@ class Vol
      */
     private $departure_hour;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="User", mappedBy="vol")
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Avion", inversedBy="vols")
+     * @ORM\JoinColumn(name="avion_id", referencedColumnName="id")
+     */
+    private $avion;
 
     /**
      * Get id
