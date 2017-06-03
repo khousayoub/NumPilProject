@@ -1,0 +1,42 @@
+{% extends 'menu.html.twig' %}
+
+{% block body %}
+    <h1>Vols list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nbr Passengers</th>
+                <th>Departur</th>
+                <th>Arrival</th>
+                <th>Arrival hour</th>
+                <th>Departure hour</th>
+                <th>Avion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vol in vols %}
+            <tr>
+                <td><a href="{{ path('vol_edit', { 'id': vol.id }) }}">{{ vol.id }}</a></td>
+                <td>{{ vol.nbPassenger }}</td>
+                <td>{{ vol.departureCity }}</td>
+                <td>{{ vol.arrivalCity }}</td>
+                <td>{% if vol.arrivalhour %}{{ vol.arrivalhour|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if vol.departurehour %}{{ vol.departurehour|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ vol.avion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('vol_delete', { 'id': vol.id }) }}">DELETE</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-info" href="{{ path('vol_new') }}">Create a new avion</a>
+{% endblock %}

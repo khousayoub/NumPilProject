@@ -15,7 +15,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <a class="navbar-brand" href="#">Icon</a>
+      <a class="navbar-brand" href="/">Icon</a>
   <!--    <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -23,8 +23,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/vols">List des vols <span class="sr-only">(current)</span></a></li>
-        <li><a href="/portfolio">Portfolio <span class="sr-only">(current)</span></a></li>
+        <li><a href="/vol">List des vols <span class="sr-only">(current)</span></a></li>
+        <li><a href="/avion">List des avions <span class="sr-only">(current)</span></a></li>
+        <li><a href="/profile">Portfolio <span class="sr-only">(current)</span></a></li>
         <li><a href="/contact">Contact <span class="sr-only">(current)</span></a></li>
         {% if app.user == "" %}
           <li><a href="/login" class="btn btn-default btn-lg"> Sign in </a></li>
@@ -37,7 +38,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
+<div class="container jumbotron">
 {% block body %}{% endblock %}
 </div>
 {% endblock %}

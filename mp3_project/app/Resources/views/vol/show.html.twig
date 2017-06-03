@@ -1,0 +1,48 @@
+{% extends 'menu.html.twig' %}
+
+{% block body %}
+    <h1>Vol</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vol.id }}</td>
+            </tr>
+            <tr>
+                <th>Nbpassenger</th>
+                <td>{{ vol.nbPassenger }}</td>
+            </tr>
+            <tr>
+                <th>Departurecity</th>
+                <td>{{ vol.departureCity }}</td>
+            </tr>
+            <tr>
+                <th>Arrivalcity</th>
+                <td>{{ vol.arrivalCity }}</td>
+            </tr>
+            <tr>
+                <th>Arrival_hour</th>
+                <td>{% if vol.arrivalhour %}{{ vol.arrivalhour|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Departure_hour</th>
+                <td>{% if vol.departurehour %}{{ vol.departurehour|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('vol_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('vol_edit', { 'id': vol.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

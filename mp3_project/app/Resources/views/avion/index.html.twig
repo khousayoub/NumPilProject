@@ -1,0 +1,34 @@
+{% extends 'menu.html.twig' %}
+
+{% block body %}
+    <h1>Avions list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avion in avions %}
+            <tr>
+                <td><a href="{{ path('avion_edit', { 'id': avion.id }) }}">{{ avion.id }}</a></td>
+                <td>{{ avion.name }}</td>
+                <td>{{ avion.capacity }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('avion_delete', { 'id': avion.id }) }}">DELETE</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-info" href="{{ path('avion_new') }}">Create a new avion</a>
+{% endblock %}

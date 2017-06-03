@@ -42,6 +42,13 @@ class Avion
     private $vols;
 
     /**
+    * Function to string
+    */
+    public function __toString() {
+        return $this->getName();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -138,30 +145,6 @@ class Avion
     public function getUsers()
     {
         return $this->users;
-    }
-
-    /**
-     * Set category
-     *
-     * @param \MpBundle\Entity\Category $category
-     *
-     * @return Avion
-     */
-    public function setCategory(\MpBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \MpBundle\Entity\Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 
     /**

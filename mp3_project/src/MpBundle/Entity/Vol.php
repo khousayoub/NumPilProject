@@ -3,6 +3,7 @@
 namespace MpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Vol
@@ -21,6 +22,12 @@ class Vol
      */
     private $id;
 
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="code", type="string", length=255)
+     */
+    private $code;
     /**
      * @var int
      *
@@ -63,10 +70,18 @@ class Vol
     private $users;
 
     /**
+     * @Assert\NotNull()
      * @ORM\ManyToOne(targetEntity="Avion", inversedBy="vols")
      * @ORM\JoinColumn(name="avion_id", referencedColumnName="id")
      */
     private $avion;
+
+    /**
+    * Function to string
+    */
+    public function __toString() {
+        return $this->getCode();
+    }
 
     /**
      * Get id
@@ -261,5 +276,29 @@ class Vol
     public function getAvion()
     {
         return $this->avion;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Vol
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }

@@ -5,6 +5,7 @@ namespace MpBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -20,16 +21,16 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @Assert\NotNull()
+     * @ORM\ManyToOne(targetEntity="UserType", inversedBy="users")
+     * @ORM\JoinColumn(name="UserType_id", referencedColumnName="id")
      */
     private $user_type;
 
     /**
     * @ORM\ManyToOne(targetEntity="Vol", inversedBy="users")
     * @ORM\JoinColumn(name="vol_id", referencedColumnName="id")
-     */
+    */
     protected $vol;
 
     public function __construct()

@@ -1,0 +1,36 @@
+{% extends 'menu.html.twig' %}
+
+{% block body %}
+    <h1>Avion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ avion.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ avion.name }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{{ avion.capacity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('avion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('avion_edit', { 'id': avion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
